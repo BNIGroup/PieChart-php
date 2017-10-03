@@ -14,6 +14,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Link google chart API -->
+        <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
             google.charts.load("current", {packages: ["corechart"]});
@@ -61,45 +62,6 @@
         ?>
     </head>
     <body>
-    <style>
-        body {
-            font-family: Roboto, Ubuntu, 'sans-serif', 'Franklin Gothic Medium';
-            margin: 0
-            font-size: 93.25%;
-        }
-
-        ::selection {
-            background: transparent
-        }
-
-        .navbar {
-            width: 100%;
-            position: fixed;
-            background: royalblue;
-            padding: 0.8rem 0 0.8rem 4rem;
-            z-index: 99;
-            top: 0;
-            left: 0;
-            right: 0
-        }
-
-        .navbar > span {
-            cursor: default;
-            font-size: 123%;
-            color: #fafafa;
-            font-weight: 500
-        }
-
-        .container {
-            margin-top: 5rem;
-            margin-left: 18%
-        }
-
-        .container > form {
-            margin-left: 100px;
-        }
-
-    </style>
     <div class="navbar"><span>Daily Activities</span></div>
         <div class="container">
             <form action="index.php" method="POST">
