@@ -1,0 +1,15 @@
+body {
+    font-family: Ubuntu, 'sans-serif', 'Franklin Gothic Medium';
+}
+.navbar {
+    width: 100%;
+    position: fixed;
+    background: aqua;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    rigth: 0
+}
+#daily {
+    margin-top: 3rem
+}
