@@ -1,12 +1,3 @@
-<?php 
-    $connect = mysqli_connect("localhost", "root", "", "blog");
-    $query = "SELECT * FROM chart";
-    $result = mysqli_query($connect, $query);
-
-    if (!$connect) {
-        die("connection failed" . mysqli_connect_error());
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,6 +7,24 @@
         <!-- Link google chart API -->
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <?php 
+            $connect = mysqli_connect("localhost", "root", "", "blog");
+            $SELECT = "SELECT * FROM chart";
+            $tugas = $_POST['tugas'];
+            $persentase = $_POST['persentase'];
+            $INSERT = "INSERT INTO chart (tugas, persentase) VALUES ('$tugas', '$persentase')";
+            $result = mysqli_query($connect, $SELECT);
+
+            if (!$connect) {
+                echo "connection failed" . mysqli_connect_error();
+            }
+
+            if (mysqli_query($connect, $INSERT)){
+                echo "nothing wrong until here";
+            } else {
+                echo "Error" . $INSERT . "<br>" . $mysqli_error($connect);
+            }
+        ?>
         <script type="text/javascript">
             google.charts.load("current", {packages: ["corechart"]});
             // Akan dihandle pada fungsi drawchart
@@ -42,24 +51,6 @@
                 chart.draw(data, options)
             }
         </script>
-        <?php 
-            $connect = mysqli_connect("localhost", "root", "", "blog");
-            $SELECT = "SELECT * FROM chart";
-            $INSERT = "INSERT INTO chart (tugas, persentase) VALUES ('$tugas', '$persentase')";
-            $result = mysqli_query($connect, $SELECT);
-            $tugas = $_POST['tugas'];
-            $persentase = $_POST['persentase'];
-
-            if (!$connect) {
-                echo "connection failed" . mysqli_connect_error();
-            }
-
-            if (mysqli_query($connect, $INSERT)){
-                echo "nothing wrong until here";
-            } else {
-                echo "Error" . $INSERT . "<br>" . $mysqli_error($connect);
-            }
-        ?>
     </head>
     <body>
     <div class="navbar"><span>Daily Activities</span></div>
